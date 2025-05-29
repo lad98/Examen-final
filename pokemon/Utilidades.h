@@ -30,6 +30,8 @@ namespace Utilidades {
     std::string getColorPorTipo(const std::string& tipo);
 
     void mostrarLogoPokemonASCII();
+    void mostrarPokeballASCII();
+    void mostrarEfectoCuracionASCII();
     
 } 
 
