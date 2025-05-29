@@ -46,7 +46,7 @@ public:
    
     void curar();
 
-    .
+    
     int usarAtaque(int indiceAtaque) const;
 
     
