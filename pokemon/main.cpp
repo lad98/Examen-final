@@ -121,7 +121,7 @@ void iniciarModoBatalla(const std::vector<Ataque>& ataquesBase, const std::vecto
 }
 
 
-}
+
 int main() {
     
     srand(static_cast<unsigned int>(time(nullptr)));
