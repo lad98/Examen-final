@@ -1,40 +1,38 @@
-// Utilidades.cpp
-#include "Utilidades.h"
-#include <iostream>  // Para std::cout, std::cin
-#include <limits>    // Para std::numeric_limits
-#include <map>       // Para std::map
 
-// Implementación de las funciones de utilidad dentro del namespace Utilidades.
+#include "Utilidades.h"
+#include <iostream>  
+#include <limits>    
+#include <map>       
+
+
 namespace Utilidades {
 
-    // Mapa para almacenar los colores por tipo de Pokémon
-    // Esto es privado dentro del namespace Utilidades o se inicializa una vez.
-    // Lo inicializamos aquí para que esté disponible globalmente para las funciones de Utilidades.
+    
     static const std::map<std::string, std::string> coloresPorTipo = {
         {"Normal", BLANCO},
         {"Fuego", ROJO},
         {"Agua", AZUL},
         {"Planta", VERDE},
         {"Electrico", AMARILLO},
-        {"Roca", NEGRO}, // O un gris oscuro si lo definimos
-        {"Tierra", AMARILLO}, // Un amarillo más oscuro
-        {"Bicho", VERDE}, // Un verde diferente
+        {"Roca", NEGRO}, 
+        {"Tierra", AMARILLO}, 
+        {"Bicho", VERDE}, 
         {"Psiquico", MAGENTA},
         {"Lucha", ROJO},
         {"Veneno", MAGENTA},
-        {"Fantasma", AZUL}, // Un azul más oscuro/grisáceo
+        {"Fantasma", AZUL}, 
         {"Siniestro", NEGRO},
-        {"Hada", MAGENTA}, // Un magenta más claro
+        {"Hada", MAGENTA}, 
         {"Hielo", CYAN},
-        {"Dragon", MAGENTA}, // Otro magenta/púrpura
-        {"Acero", BLANCO} // Un blanco/gris metálico
+        {"Dragon", MAGENTA}, 
+        {"Acero", BLANCO} 
     };
 
     void limpiarPantalla() {
-        // En sistemas Windows
+        
         #ifdef _WIN32
             system("cls");
-        // En sistemas basados en Unix (Linux, macOS)
+        
         #else
             system("clear");
         #endif
@@ -42,8 +40,8 @@ namespace Utilidades {
 
     void pausar() {
         std::cout << "\nPresiona Enter para continuar..." << std::endl;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Limpia cualquier entrada previa
-        //std::cin.get(); // Espera a que el usuario presione Enter
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        
     }
 
     void limpiarBufferEntrada() {
@@ -66,13 +64,13 @@ namespace Utilidades {
         std::cout << RESET << std::endl;
     }
 
-    // CORREGIDO: Implementación de dibujarRecuadro con el parámetro 'negrita'
+    
     void dibujarRecuadro(const std::string& titulo, const std::string& subtitulo, const std::string& color, bool negrita) {
-        int ancho = 50; // Ancho fijo para el recuadro
+        int ancho = 50; 
         dibujarSeparador('=', ancho, color);
-        imprimirEnColor("| " + titulo + std::string(ancho - titulo.length() - 4, ' ') + " |", color, negrita); // Usa 'negrita' aquí
+        imprimirEnColor("| " + titulo + std::string(ancho - titulo.length() - 4, ' ') + " |", color, negrita); 
         if (!subtitulo.empty()) {
-            imprimirEnColor("| " + subtitulo + std::string(ancho - subtitulo.length() - 4, ' ') + " |", color, negrita); // Usa 'negrita' aquí
+            imprimirEnColor("| " + subtitulo + std::string(ancho - subtitulo.length() - 4, ' ') + " |", color, negrita); 
         }
         dibujarSeparador('=', ancho, color);
     }
@@ -82,10 +80,10 @@ namespace Utilidades {
         if (it != coloresPorTipo.end()) {
             return it->second;
         }
-        return BLANCO; // Color por defecto si el tipo no se encuentra
+        return BLANCO; 
     }
 
-    // Implementación de la función para el logo ASCII de Pokémon
+    
     void mostrarLogoPokemonASCII() {
         std::cout << AZUL << R"(
                                                                                                             
@@ -115,71 +113,7 @@ namespace Utilidades {
                                                                                                             
         )" << RESET << std::endl;
     }
+}
 
-    // Nueva función para mostrar una Pokeball ASCII
-    void mostrarPokeballASCII() {
-        std::cout << ROJO << R"(
-     .--.
-    /o  o\
-   |      |
-   \  --  /
-    `----`
-)" << RESET << std::endl;
-    }
-
-    // Nueva función para mostrar un efecto de curación ASCII
-    void mostrarEfectoCuracionASCII() {
-        std::cout << VERDE << R"(
-                               ..                                     .......                           
-                         ..:=*%@@@@@@@#+-:.                      .:-+#@@@@@@@%*=-..                     
-                     .. =@@@@@@@@@@@@@@@@@@@@*:...               .:*@@@@@@@@@@@@@@@@@@@@=..                 
-                   .*@@@@@@@@@@@@@@@@@@@@@@@@@@#..         .#@@@@@@@@@@@@@@@@@@@@@@@@@@*.               
-                .-@@@@@@@@@%=:..     ..%@@@@@@@@@@:      :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:.            
-               :@@@@@@@@=..           .+@@@@@@@@@@@#.  .#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%:           
-             .*@@@@@@#:..  .:+#@@@@@@@@@@@@@@@@@@@@@@==@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*.         
-            .%@@@@@#..  .=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%..       
-           :@@@@@@-.  .+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:       
-          .%@@@@@:  .-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.      
-         .*@@@@@.   +@@@@@@@@@@@@@@@@@@@@@@@@@@*...        .+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#.     
-         :@@@@@=  .*@@@@@@@@@@@@@@@@@@@@@@@@@@....          ..%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-     
-         *@@@@%.  -@@@@@@@@@@@@@@@@@@@@@@@@@@=...*########*.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#.    
-        .@@@@@-.  *@@@@@@@@@@@@@@@@@@@@@@@@@@=...%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.    
-        :@@@@@.  .@@@@@@@@@@@@@@@@@@@@@@@@@@@=...%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:    
-        :@@@@@.  .@@@@@@@@@@@@@@@@@@@@@@@@@@@=...%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:    
-        :@@@@@.  .@@@@@@@@@@@@@@@@@@@@@@@@@@@=...%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:    
-        .@@@@@=   +@@@@@@@@@@@@@@@@@@@@@@@@@@=  .%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.    
-         *@@@@@.  :@@@@@@@@@@@@@@-:...........  .%@@@@@@@@%.  ...........:-@@@@@@@@@@@@@@@@@@@@@@@+     
-         :@@@@@=...*@@@@@@@@@@@%.              ..%@@@@@@@@%.               .%@@@@@@@@@@@@@@@@@@@@@:     
-         .#@@@@%....#@@@@@@@@@@+  .%@@@@@@@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%.  =@@@@@@@@@@@@@@@@@@@@#.     
-         .:@@@@@%.  :@@@@@@@@@@=  .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.  =@@@@@@@@@@@@@@@@@@@@:      
-           =@@@@@+.  .@@@@@@@@@=  .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.  =@@@@@@@@@@@@@@@@@@@-       
-           .#@@@@@*.  .@@@@@@@@=  .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.  =@@@@@@@@@@@@@@@@@@*          
-              .*@@@@@@- ..:@@@@@:.              .%@@@@@@@@%.              .-@@@@@@@@@@@@@@@@*            
-            .=@@@@@@%.   -@@@@@@@@@@@@@@@=  .%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@@@-.            
-              .%@@@@@@=.  .+@@@@@@@@@@@@@=  .%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@@%..             
-                +@@@@@@@:.  .#@@@@@@@@@@@=  .%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@@@+...             
-                ..%@@@@@@#      ..:@@@@@@@@@@=  .%@@@     @@@@@%.  =@@@@@@@@@@@@@@@@@@@@@@%..                
-                  .-@@@@@@@*.   :@@@@@@@@=  .%@@@@@@@@%.  =@@@@@@@@@@@@@@@@@@@@@-.                  
-                    .*@@@@@@@*.. .:@@@@@@+  .----------.  =@@@@@@@@@@@@@@@@@@@*..                   
-                     ..#@@@@@@@+.     .-%@@@@-.                   :@@@@@@@@@@@@@@@@@@#.                      
-                        .%@@@@@@@=.  .:%@@@@+===========%@@@@@@@@@@@@@@@@@%:.                       
-                          :%@@@@@@@=.   .=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%:                          
-                            :@@@@@@@@+..%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:..                          
-                             .-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:..                            
-                               .:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%:.                               
-                                 .:#@@@@@@@@@@@@@@@@@@@@@@@@@@@@*:...                               
-                                   ..#@@@@@@@@@@@@@@@@@@@@@@@@+....                                 
-                                      .+@@@@@@@@@@@@@@@@@@@@=                                       
-                                        .-@@@@@@@@@@@@@@@%:.                                        
-                                           .%@@@@@@@@@@*...                                         
-                                            ..*@@@@@@+..                                            
-                                               .-%%-.                                               
-                                                                                                            
-                                                                                                            
-                                                                                                            
-                                                                                                            
-                                                                                                            
-        )" << RESET << std::endl;
-    }
-
-} // Fin del namespace Utilidades // Fin del namespace Utilidades
+    
+    
