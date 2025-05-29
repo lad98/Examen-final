@@ -1,3 +1,4 @@
+Hay que tener en cuenta que la mayorá de estas implementaciones se hicieron con el apoyo de IA.
 **1. Modo historia:**
 Este modo permite darle un poco mas de sentido a la historia en ese caso a Ash de pueblo paleta, quien hasta ahora va iniciar su viaje como entrenador y tendra que pasar por varios oponentes para ser mas fuerte y llegar a ser un Maestro Pokemon, para esto se tiene que pasar 10 nivles, en donde se podra ir teniendo un aequipo pokemon mas grande.En términos técnicos, esto implica:
 
