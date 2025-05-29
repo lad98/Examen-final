@@ -31,6 +31,9 @@
 6. Sistema de reservas.
 
 7. Crear eventos para cambiar las tarifas.
+
+8. Reporte financiero.
+   
    
 </p>
 </details>
