@@ -1,3 +1,4 @@
+La base de la mayoria de estos códigos se dió por me dio de IA.
 **1. Sistema de usuarios:**
 Se dividio el sistema en dos en la parte del admistrador y la del usuario, siendo los usuarios:
 
@@ -21,7 +22,7 @@ Si el usuario necesita conocer si un vehiculo esta en el parquedero y cual es su
 
 **5. Generar reporte de ocupación:**
 
-El sistema da un reporte con el porcentaje de ocupación en el momento que se solicite el reporte.
+El sistema da un reporte con el porcentaje de ocupación en el momento que se solicite el reporte, este se da por zona y en general para este hay q tener en cuenta que los porcentajes utiliza tambien el espacio de ruta.
 
 **6. Sistema de reservas:**
 
@@ -30,3 +31,15 @@ El admin puede reservar parqueaderos, por dia con la información de la placa, e
 **7. Crear eventos para cambiar las tarifas:**
 
 El admin puede crear un evento especial, fijando una fecha y un límite de duración de la oferta, poniendole un nombre al evento.
+
+**8. Reporte financiero:**
+En la parte de admin, tiene la opcion de solicitar un informe de los ingresos del parquadero con la siguiente información: 
+Total Ingresos: $0.00
+
+Vehículos retirados: XX
+
+Servicios de lavado solicitados: XX
+
+Promedio por vehículo: $XX
+
+Total de horas estacionado (aprox): XX horas
